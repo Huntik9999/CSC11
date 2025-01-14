@@ -24,7 +24,10 @@ main:
 	//operation, destination, mult mult 	
 	@and r0, r0, r1
 	@orr r0, r0, r1
-	eor  r0, r0, r1
+	@eor  r0, r0, r1
+	//bit clear 
+	mov r2, #0b0010 //2nd bit 
+	bic r0, r0, r2
 
 	//print this thang 
 	mov r1, r0
