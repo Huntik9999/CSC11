@@ -1,0 +1,6 @@
+All devices used to maintain repository 
+
+1.School Computer : Windows Something 
+2.T490 Thinkpad : Arch Linux 
+3.Rasberry Pi 4 : Rasberry OS
+
