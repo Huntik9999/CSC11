@@ -1,0 +1,6 @@
+All devices used to maintain repository 
+
+1.School Computer
+2.T490 Thinkpad
+3.Rasberry Pi 4
+
