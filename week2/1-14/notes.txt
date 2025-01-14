@@ -1,0 +1,4 @@
+1/14/2025
+
+* learning the basics of operators in assembly
+ 
