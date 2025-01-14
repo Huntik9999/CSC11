@@ -15,7 +15,6 @@ myTxt: .ascii "Hello World\n"
 
 //code start
 .text 
-
 _start: 
 	
 

@@ -1,0 +1,9 @@
+Instructions for lab5
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Create a program that asks for a users birthyear and the current year. The calculate their age and display it in the terminal. 
+
+Take a screenshot of it running in the terminal.
+
+Please submit the assembly code and screenshot in separate files with the following schema lab5probX.s in one zip file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+File made on: 1/14/2025 

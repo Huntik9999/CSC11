@@ -1,0 +1,14 @@
+Instructions for lab 4:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Create a hello world program in assembly that writes the world "Hello World!"
+
+I want two version of this program:
+
+    that uses syscalls to print hello world
+    that uses lib c (c library) to print hello world
+
+Then take a screenshot of both version running in the terminal.
+
+Please submit the assembly programs and screenshots in separate files with the following schema lab4probX.s in one zip file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+file made on: 1/14/2025
