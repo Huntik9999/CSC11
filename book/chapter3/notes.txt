@@ -1,0 +1,3 @@
+Steps to execute Assembly file 
+1.as -o file.o file.s //makes an object file based on .s 
+2.ld -o file file.o  //link object file and convert into ex.
