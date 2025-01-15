@@ -1,0 +1,20 @@
+.global main
+
+//variable, init
+.section .data 
+
+//readonly 
+.section .rodata
+	outStr: .asciz "result: %d"
+//var un-init 
+.section .bss
+
+//code start 
+.text
+main:
+	//came from 
+	push {lr}  
+
+	//operation, destination, in
+
+	pop {pc} 
