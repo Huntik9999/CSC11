@@ -16,8 +16,6 @@ myTxt: .ascii "Hello World!\n"
 //code start
 .text 
 _start:
-	//int 4 into adress 7
-	mov r7, #4
 
 	//int 1 intp adress 0
 	mov r0, #1
