@@ -28,10 +28,7 @@ _start:
 	//size of string 
 	mov r2, #13
 
-	//sys call
-	swi 0
-
 	//stuff to exit 
-	mov r7, #1
-	mov r0, #0
-	swi 0 
+	mov r7, #1 //want to exit 
+	mov r0, #0 //exit code
+	swi 0 //sys call 
