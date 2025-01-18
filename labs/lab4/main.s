@@ -17,10 +17,10 @@ myTxt: .ascii "Hello World!\n"
 .text 
 _start:
 	//say what you want to do
-	mov r7, #4
+	mov r7, #4 //write - 3 arguments
 
-	//int 1 intp adress 0
-	mov r0, #1
+	//int 1 into adress 0
+	mov r0, #1 
 
 	//load r1 with string 
 	ldr r1, =myTxt
@@ -28,8 +28,9 @@ _start:
 	//size of string 
 	mov r2, #13
 
+	//system call 
 	swi 0
 	//stuff to exit 
-	mov r7, #1 //want to exit 
-	mov r0, #0 //exit code
+	mov r7, #1 //call to exit 
+	mov r0, #0 //clean up
 	swi 0 //sys call 

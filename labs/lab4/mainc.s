@@ -19,7 +19,7 @@ main: //	int main (){
 	//print
 	bl printf
 
-	//always put at end 
+	//always put at end , clean exit
 	mov r0, #0
 
 	//end; using c lib
