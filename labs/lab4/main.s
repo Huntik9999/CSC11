@@ -16,6 +16,8 @@ myTxt: .ascii "Hello World!\n"
 //code start
 .text 
 _start:
+	//say what you want to do
+	mov r7, #4
 
 	//int 1 intp adress 0
 	mov r0, #1
@@ -26,6 +28,7 @@ _start:
 	//size of string 
 	mov r2, #13
 
+	swi 0
 	//stuff to exit 
 	mov r7, #1 //want to exit 
 	mov r0, #0 //exit code
