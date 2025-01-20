@@ -10,19 +10,20 @@
 	coutB: .asciz "Please enter integer B: "
 	coutC: .asciz "Please enter integer C: "
 	dataType: .asciz "%d"
+	test: .asciz "test number givenm: %d \n"
 
 //code start
 .text
 main:
-	push {lr]
+	push {lr}
 
 	//load and output
 	ldr r0, =coutWelcome
-	ld printf
+	bl printf
 
-	//load and output
+	//load and output ~~~~~
 	ldr r0, =coutA
-	ld printf
+	bl printf
 
 	//datatype and input
 	ldr r0, =dataType
@@ -33,10 +34,43 @@ main:
 	ldr r4, =input
 	ldr r4, [r4]
 
-	//2nd question
+	//2nd question  ~~~~~~
 	ldr r0, =coutB
-	ld printf
+	bl printf
 
-	//
+	//input 
+	ldr r0, =dataType
+	ldr r1, =input
+	bl scanf 
+	//store 
+	ldr r5, =input
+	ldr r5, [r5]
+
+	//3rd question
+	ldr r0, =coutC
+	bl printf
+
+	//input
+	ldr r0, =dataType
+	ldr r1, =input
+	bl scanf 
+	//store 
+	ldr r6, =input
+	ldr r6, [r6]
+	/*test print ~~~~~~~~~~~~
+	ldr r0, =test
+	mov r1, r4
+	bl printf
+	//~~~~~~~~~~~~~~~~~
+	ldr r0, =test
+	mov r1, r5
+	bl printf
+	//~~~~~~~~~~~~~~~
+	ldr r0, =test
+	mov r1, r6
+	bl printf
+	//Compare the numbers~~~~~~~~~~~~~~~~*
+	
+	//end
 	pop {pc}
 

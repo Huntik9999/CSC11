@@ -1,0 +1,135 @@
+---------Notes--from--the--book----------------created--on--1/19/25------
+CH.1 ~
+->talking about pi/intro
+-------------------------------------------------------------------------
+CH.2 ~
+->fundementals of arm
+-------------------------------------------------------------------------
+CH.3 ~
+->Command Line
+    -words are case specific
+    -dir = ls
+->Creating a source file
+    -source file = file.s
+    -install packages with "sudo apt-get instal (package)"
+    -make file with "text-editor file.s"
+->Come to the Execution
+    -create executable file:
+        *$as -o file.o file.s 
+            *as invokes the assebler program
+            *-o creates a object file from the source file
+        *$ld -o a.out file.o
+            *ld links the files together
+
+            *-o creates executable file from the object file
+    -execute file with "./a.out"
+        *"./" = run
+->The Components
+    -.global _start = start at _start:
+    -assembly coding consist of mnemonics (not case sensitive)
+        *MOV R0, #65 = mov r0, #65
+    -after running type "echo $?"  to print value in r0
+    -@ = // = /* words *\
+        *comments are ignored by the compiler
+->Linking Files
+    -ld = link dynamic
+    -BAL = Branch ALways 
+        *"BAL _name" at end of code
+        *make a .global _name in 2nd file
+        *start new code after part2: 
+    -Assemble with 2 files
+        *$as -o part1.o part1.s
+        *$as -o part2.o part2.s
+        *for ld file order does not matter
+        *$ld -o a.out part1.o part2.o  //tethered
+->Tidying Up
+    -rm = remove file
+        *only need .s file
+    -mkdir = make file
+    -cd file = go into file 
+    -cd = root 
+-------------------------------------------------------------------------
+CH.4 ~ 
+->converting bases 
+-------------------------------------------------------------------------
+CH.5 ~
+->Word Lengths
+    -8  bits = 1 byte
+    -32 bits = 4 byte = word(rasberry pi) 
+->Byte and Word Accessed Memory
+    -addresses = hex number
+    -word-aligned address = number inside is divisible by 4
+        *must to store code in arm
+->Registers
+    -16 registers 
+        *each can hold a word
+        *locations in arm 
+        *avoid using r15
+    -registers are designed to hold adresses and values 
+    -LDR = LoaD Register 
+        *LDR R1, [R5] @ Load R1 with content from R5
+    -STR = STore a Register
+        *STR R1, [R6] @ Store whats inside R1 at R6
+    -[] = adressing mode 
+        *they have adresses
+->Program Counter
+    -PC = R15
+    -keeps track of where program is in execution
+->Current Program Status Register
+    -Used to store result of operations 
+    -N = negative flag
+    -Z = zero flag
+    -C = cary flag
+    -V = Overflow flag
+->Bits and flags
+-------------------------------------------------------------------------
+CH.6 ~
+-------------------------------------------------------------------------
+CH.7 ~
+-------------------------------------------------------------------------
+CH.8 ~
+-------------------------------------------------------------------------
+CH.9 ~
+-------------------------------------------------------------------------
+CH.10 ~
+-------------------------------------------------------------------------
+CH.11 ~
+-------------------------------------------------------------------------
+CH.12 ~
+-------------------------------------------------------------------------
+CH.13 ~
+-------------------------------------------------------------------------
+CH.14 ~
+-------------------------------------------------------------------------
+CH.15 ~
+-------------------------------------------------------------------------
+CH.16 ~
+-------------------------------------------------------------------------
+CH.17 ~
+-------------------------------------------------------------------------
+CH.18 ~
+-------------------------------------------------------------------------
+CH.19 ~ 
+-------------------------------------------------------------------------
+CH.20 ~
+-------------------------------------------------------------------------
+CH.21 ~
+-------------------------------------------------------------------------
+CH.22 ~ 
+-------------------------------------------------------------------------
+CH.23 ~
+-------------------------------------------------------------------------
+CH.24 ~ 
+-------------------------------------------------------------------------
+CH.25 ~ 
+-------------------------------------------------------------------------
+CH.26 ~
+-------------------------------------------------------------------------
+CH.27 ~
+-------------------------------------------------------------------------
+CH.28 ~
+-------------------------------------------------------------------------
+CH.29 ~
+-------------------------------------------------------------------------
+CH.30
+-------------------------------------------------------------------------
