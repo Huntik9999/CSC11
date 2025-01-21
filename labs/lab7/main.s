@@ -38,17 +38,16 @@ main:
     ldr r4, [r4]
 
     //test grade againt other numbers
-
+    //check for negative flag from 90 and keep em going
     cmp r4, #90             //---------Notes------------
-    bpl gradeA
-    cmp r4, #80             //bmi = negative flag
-    bpl gradeB
-    cmp r4, #70             //bpl = no negative flag 
+    bpl gradeA              //bmi = negative flag
+    cmp r4, #80             //bpl = no negative flag
+    bpl gradeB              //bal = always branch
+    cmp r4, #70             //mp r1, r2 @ sets flags for r1 - r2
     bpl gradeC
-    cmp r4, #60             //bal = always branch
+    cmp r4, #60             
     bpl gradeD
     bmi gradeF
-                            //cmp r1, r2 @ sets flags for r1 - r2
     gradeA:
         ldr r1, =letterA
         bal end
