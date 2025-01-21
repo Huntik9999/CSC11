@@ -6,11 +6,12 @@
 //read only
 .section .rodata
 	coutWelcome: .asciz "This program finds the biggest number\n"
-	coutA: .asciz "Please enter integer A: "
-	coutB: .asciz "Please enter integer B: "
-	coutC: .asciz "Please enter integer C: "
-	dataType: .asciz "%d"
-	test: .asciz "test number givenm: %d \n"
+	coutA:       .asciz "Please enter integer A: "
+	coutB:       .asciz "Please enter integer B: "
+	coutC:       .asciz "Please enter integer C: "
+	coutBig:     .asciz "The biggest number given is: %d \n"
+	dataType:    .asciz "%d"
+	test:        .asciz "test number givenm: %d \n"
 
 //code start
 .text
@@ -69,8 +70,41 @@ main:
 	ldr r0, =test
 	mov r1, r6
 	bl printf
-	//Compare the numbers~~~~~~~~~~~~~~~~*
+	//Compare the numbers~~~~~~~~~~~~~~~~*/
+	cmp r4, r5 // r4 - r5 
+	bmi _r5wins // negative flag
+	bpl _r4wins // no negative flag 
 	
+_r5wins:
+	//compare last 2 nums
+	cmp r5, r6 // r5 - r6
+	bmi _round2r6 // negative flag
+	bpl _round2r5 // no negative flag 
+_r4wins:
+	//compare last 2 nums 
+	cmp r4, r6 //  r4 - r6
+	bmi _round2r6 // negative flag
+	bpl _round2r4 // no negative flag 
+/*--------------ROUND-2----------------------------------*/
+//output results based on register and go to the end
+_round2r4:
+	ldr r0, =coutBig
+	mov r1, r4
+	bl printf
+	bal _end 
+_round2r5:
+	ldr r0, =coutBig
+	mov r1, r5
+	bl printf
+	bal _end 
+_round2r6: 
+	ldr r0, =coutBig
+	mov r1, r6
+	bl printf
+	bal _end 
+/*   THE END */
+_end:
 	//end
+	mov r0, #0
 	pop {pc}
 
