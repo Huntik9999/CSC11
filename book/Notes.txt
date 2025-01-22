@@ -170,11 +170,117 @@ CH.6 ~ Data Processing
     -No S suffix
 -------------------------------------------------------------------------
 CH.7 ~ ROS Ins and Outs
-->
+->SWI and SVC Commands
+    -SWI = SoftWare Interrupt
+        *program is paused and a routine is done
+        *sometimes called SVC (SuperVisor Call )
+        * SWI 0 = SVC 0
+    -Action is determined by number in r7
+        *the first few registers are used as arguments
+-> Writing to the Screen
+    -syscall 4
+    -R7 = the number of the Syscall, so R7=4
+    -aruments
+        *R0= the output stream, 1 for the monitor
+        *R1= the address of the string of characters
+        *R2= the number of characters to be written
+    -example
+        *MOV R7, #4 @ Syscall number
+        *MOV R0, #1 @ Stdout is monitor
+        *MOV R2, #19 @ string is 19 chars long // "\n" = 1 char
+        *LDR R1,=string @ string located at string:
+        *SWI 0
+    -.data tells assembler code is a subsection with data
+        *if placed at start use ".start" to show start of code
+->Reading from the keyboard
+    -syscall 3
+    -arguments
+        *R0= input stream, this is 0 for the
+        *R1= buffer address for string of characters read to be placed
+        *R2= the number of characters to be read
+        *R7= the number of the Syscall, so R7=3
+    -example code 
+        *MOV R7, #3 @ Syscall number
+        *MOV R0, #0 @ Stdin is keyboard
+        *MOV R2, #5 @ read first 5 characters
+        *LDR R1,=string @ string placed at string:
+        *SWI 0
+    -can also use .ascii "       " as a buffer for read
+    -user can type unlimited numbers
+        *only value from r2 will be read in 
+        *anything else will be read in as a terminal command
+        *return can be inputed if space is left 
+->Eax and Others
+    -a lot of syscall documentation is made for i386 not arm
+    -"Make" = software to control generation of exe  
+    -more info at: www.gnu.org/software/make/
 -------------------------------------------------------------------------
-CH.8 ~
+CH.8 ~ Logical Operations
+->Logical AND 
+    -4 rules
+        *0 AND 0 = 0 [Nought and nought is nought]
+        *1 AND 0 = 0 [One and nought is nought]
+        *0 AND 1 = 0 [Nought and one is nought]
+        *1 AND 1 = 1 [One and one are one]br/>
+    -Both must be activated to work 
+    -used to turn off bits
+->Logical OR
+    -4 rules
+        *0 OR 0 = 0 [Nought or nought is nought]
+        *1 OR 0 = 1 [One or nought is one]
+        *0 OR 1 = 1 [Nought or one is one]
+        *1 OR 1 = 1 [One or one are one]
+    -activates if 1 or more are present
+    -used to turn on bits
+->Logical EOR
+    -4 rules, Exclusive ORoperation
+        *0 EOR 0 = 0 [Nought exclusive or nought is nought]
+        *1 EOR 0 = 1 [One exclusive or is one]
+        *0 EOR 1 = 1 [Nought exclusive or one is one]
+        *1 EOR 1 = 0 [One exclusive or one is nought]
+    -activates if only one is on  
+    -used to invert numbers with 111111111(same as MVN instruction)
+->Logical Instructions
+    -Commands:
+        *AND (<suffix>) <dest>, <Operand1>, <Operand2>
+        *ORR (<suffix>) <dest>, <Operand1>, <Operand2>
+        *EOR (<suffix>) <dest>, <Operand1>, <Operand2>
+    -Use suffix to set flags 
+    -Operand1 must be a register 
+    -Example code:
+        *AND R0, R0, #1 @ preserve state of b0 in R0
+        *ORR R1, R1, #2 @ ensure bit 1 in R1 is set
+        *EOR R2, R2, #255 @ invert bits in low byte R2
+->ORR to Convert Character Case
+    -0x20 value difference between a/A, b/B, ...etc
+    -use ORR to change example: 
+        *LDR R1, =string @ address of char
+        *LDR R0, [R1] @ load it into R0
+        *ORR R0, R0, #0x20 @ change case
+        *STR R0, [R1] @ write char back
+->Bit Clear with BIC
+    -clears individual bits in registers or mem locations
+    -BIC (<suffix>) <dest>, <Operand1>, <Operand2>
+    -Example code:\
+        *BIC R0, R0, #%1111 @ clear low 4 bits of R0.
+->Flag Test
+    -TST = TeSt BiTs 
+        *TST <Operand1>, <Operand2>
+        *TST R0, #128 @ Test if b7 of R0 is set
+        *logical AND
+    -TEQ = Test EQuivalence
+        *TEQ <Operand1>, <Operand2> 
+        *TEQ R0, R1 @ Test if R0 & R1 are same
+        *Uses EOR process
+    -LSL = Logical Shift Left
+    -example code:
+        *MOV R10, #1: 00000000 00000000 00000000 00000001
+        *LSL #31: 10000000 00000000 00000000 00000000
+        *<< shift left by 31 places <<
+    -ascii #'1' != value #1 
 -------------------------------------------------------------------------
-CH.9 ~
+CH.9 ~ Condistional Execution 
+
 -------------------------------------------------------------------------
 CH.10 ~
 -------------------------------------------------------------------------
