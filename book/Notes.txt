@@ -279,12 +279,69 @@ CH.8 ~ Logical Operations
         *<< shift left by 31 places <<
     -ascii #'1' != value #1 
 -------------------------------------------------------------------------
-CH.9 ~ Condistional Execution 
+CH.9 ~ Conditional Execution 
+->Suffixes - Conditional Codes
+    -almost all instructions can have a suffix
+    -example: CS suffix //carry set
+        *will only wory if carry flag is activated
+        *makes instructions conditional 
+    -Single flag suffixes:
+        *EQ = Equal                 -Z = 1 
+        *NE = Not Equal             -Z = 0 
+        *VS = Overflow Set          -V = 1
+        *VC = Overflow Clear        -V = 0
+        *MI = Minus Set             -N = 1
+        *PL = Plus clear            -N = 0
+        *CS/HS = Carry Set          -C = 1 
+        *CC/LO = Carry Clear        -C = 0
+        *AL = Always                -default
+        *NV = Never                 -stops_execution
+    -Multiple Flag suffixes
+        >Unsigned:                        
+        *HI = Higher                -C = 1 & Z = 0    
+        *LS = Lower Than or Same    -C = 0 & Z = 1 
+        >signed:     
+        *GE = Greater Than or Equal -N=1,V=1 or N=0,V=0
+        *LT = Less Than             -N=1,V=0 or N=0,V=1
+        *GT = Greater Than          -N=1,V=1 or N=0,V=0 & Z=0
+        *LE = Less Than or Equal    -N=1,V=0 or N=0,V=1 or Z=1
+        !!!!!C=1 op1 >= op2 in subtraction!!!!!!!   
+->Mixing the S suffix
+    -Add S after the conditional suffix to update register based on action
+    -Example:
+        *ADD CS S R0, R1, R2 @ R2+R1 if C=1, Update flags as well
+-------------------------------------------------------------------------
+CH.10 ~ Branch and Compare 
+->Branch Instructions 
+    -B/BAL (<suffix>) <label>
+    -BL    (<suffix>) <label>
+    -instead of b use bal, helps with getting lost
+    -tells code to go foward or back (only stores offset)
+    -distance limit is +/- 32Mb 
+->The Link Register
+    -BL = Branch with link instruction 
+    -PC(R15) is copied into Link Register (R14) before branching <- done auto
+    -MOV R15, R14 returns control
+    -flags are preserved from jump
+    -If a new bl is called LR will be replaced 
+->Using compare instructions
+    -can make loop count down to reduce size of code
+        * MOV R0,#50 @ Initialise count
+        *loop:
+        * SUBS R0,R0,#1 @ Decrement count
+        * BNE loop @ Loop if not Zero
+    -more effective to count down
+    -example of an efficient loop:
+         *MOV R0, #100 @ arbitrary values in R0 & R1
+         *MOV R1, #20
+        *loop:
+         *CMP R0, R1 @ Are they the same: Z=1?
+         *SUBGT R0,R0,R1 @ sub R1 from R0 if Great Than
+         *SUBLT R1,R1,R0 @ else sub R0 from R1 as Less
+         *BNE loop @ branch is not equa 
 
 -------------------------------------------------------------------------
-CH.10 ~
--------------------------------------------------------------------------
-CH.11 ~
+CH.11 ~ Shifts and Rotates
 -------------------------------------------------------------------------
 CH.12 ~
 -------------------------------------------------------------------------
