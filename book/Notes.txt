@@ -342,30 +342,88 @@ CH.10 ~ Branch and Compare
 
 -------------------------------------------------------------------------
 CH.11 ~ Shifts and Rotates
+->Logical Shifts 
+    -doubles(lsl) or halves numbers(lsr)
+    -Logical Shift Left = LSL
+        *every shift multiplies number by 2
+        *bit 31 gets dropped and put in the carry flag
+        *add-n to operand 2
+        *example: 
+            >MOV R1, #17
+            >MOVS R0, R1, LSL#1 // R1 * 2 = R0
+        *LSL #5 = 32, (2x2x2x2x2), 2^5
+->Logical Shift Right
+    -bit 0 drops into carry flag 
+    -shifts right with 0 going into bit 31
+    -divide by 2 each shift
+->Arithmetic Shift Right
+    -ASR, same as lsr but sign bit is preserved | bit 31 = 31 & 30
+    -works on a twos compliment
+    -division works on both positive and negative numbers
+    -sets cary flag
+->Arithmetic Shift Left
+    -same as LSL
+    -Dont use ASR due to errors with assemblers
+->Rotations
+    -Rotate Right = ROR
+    -moves bits from low end to high end 
+    -b31 = b0 ; b0 = b1
+    -b0 also dropped into carry flag 
+    -Example: 
+        *MOV R1, #0xF000000F
+        *MOVS R0, R1, ROR #4 // esult of 0xFF000000 / sets N & C flags
+->Immediate Constant Range 
+    -Only 12 bits can be used in immediate values Ex: SUB R0, R1, #3 // the 3
+    -split into 2 goups: 8 bits(numeric constant) & 4 bits(16 positions / shifting)
+    -store number if big
+->Top Move 
+    -MOVT
+    -example: 
+        *MOV R1, #0x0008
+        *MOVT R1, #0x3F20 // R1 = 0x3F200008
 -------------------------------------------------------------------------
-CH.12 ~ 
+CH.12 ~ Smarter Numbers 
+->Long Multiplication 64 bit
+    -SMULL(signed) and UMULL(unisgned)
+    -example: 
+        *SMULL (<suffix>) <destlLo>, <destHi>, <Op1>, <Op2>
+        *UMULL (<suffix>) <destlLo>, <destHi>, <Op1>, <Op2>
+    -SMULL
+        *op1 and op2 are assumed twos compliment
+        *cant use PC & dont use SP
+        *destinations should be different
+    -UMULL
+        *64-bit product from two unsigned ints
+->Long Accumulation
+    -SMLAL(signed) and UMALA(unsigned) = MLA 
+    -SMLA:
+        *SMLA<x><y> (<suffix>)><dest>, <Op1>, <Op2>, <Op3>
+    -x & y = B(bottom) or T(top) of 2 bytes
+    -op3 = value to add to the result of Multiplication
+    -SMLAWB = op1 full word, op2 bottom half
 -------------------------------------------------------------------------
-CH.13 ~
+CH.13 ~ Program Counter R15
+-> 
 -------------------------------------------------------------------------
-CH.14 ~
+CH.14 ~ Debugging with GDB
 -------------------------------------------------------------------------
-CH.15 ~
+CH.15 ~ Data Transfer 
 -------------------------------------------------------------------------
-CH.16 ~
+CH.16 ~ Block Transfer
 -------------------------------------------------------------------------
-CH.17 ~
+CH.17 ~ Stacks
 -------------------------------------------------------------------------
-CH.18 ~
+CH.18 ~ Directives and Macros
 -------------------------------------------------------------------------
-CH.19 ~ 
+CH.19 ~ File Handling
 -------------------------------------------------------------------------
-CH.20 ~
+CH.20 ~ Using libc
 -------------------------------------------------------------------------
-CH.21 ~
+CH.21 ~ Writing Functions
 -------------------------------------------------------------------------
-CH.22 ~ 
+CH.22 ~ Disassembling C
 -------------------------------------------------------------------------
-CH.23 ~
+CH.23 ~ 
 -------------------------------------------------------------------------
 CH.24 ~ 
 -------------------------------------------------------------------------
