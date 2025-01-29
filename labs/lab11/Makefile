@@ -3,4 +3,4 @@ build:
 	gcc -o tri intSqrt.o tri.s -lm
 
 clean: 
-	rm tri sqrt.o
+	rm tri intSqrt.o
