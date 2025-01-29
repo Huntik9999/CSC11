@@ -46,7 +46,7 @@ getInputs:
         //store
         ldr r4, =inputA
         ldr r4, [r4]
-        //check if less than 0 or equal
+        //check if less than 1
         cmp r4, #0 
         ble _inputA
     _inputB:
@@ -60,11 +60,11 @@ getInputs:
         //store
         ldr r5, =inputB
         ldr r5, [r5]
-        //check if less than 0 or equal
+        //check if less than 1
         cmp r5, #0 
         ble _inputB
-        //add and return the numbers combined 
-        add r0, r4, r5
+    //add and return the numbers combined 
+    add r0, r4, r5
 
     //pray it works 
     pop {pc} 
