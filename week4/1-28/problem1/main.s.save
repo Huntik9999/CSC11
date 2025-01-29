@@ -1,0 +1,27 @@
+.global main
+.global passByVal
+
+.section .data val1
+.text
+main:
+	push {lr}
+
+
+
+
+
+
+
+
+	pop {pc}
+
+passByVal: //function
+	push {lr}
+
+
+
+
+
+
+
+	pop {pc}
