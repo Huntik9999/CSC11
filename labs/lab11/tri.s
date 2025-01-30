@@ -19,6 +19,7 @@
     coutGetB: .asciz "Please enter side B of the right triangle: "
     dataType: .asciz "%d"
     coutHyp: .asciz "The Hypotenuse of the right triangle is: %d\n"
+    error: .asciz "|!ERROR!|-Enter a number greater than 0\n"
 .text
 main:
     push {lr}
@@ -34,8 +35,8 @@ main:
     
     pop {pc} // should return 2 if the sqrt is working
 getInputs:
+    push {lr}
     _inputA:
-        push {lr}
         //output 
         ldr r0, =coutGetA
         bl printf
@@ -48,6 +49,8 @@ getInputs:
         ldr r4, [r4]
         //check if less than 1
         cmp r4, #0 
+        ldrle r0, =error
+        blle printf 
         ble _inputA
     _inputB:
         //2nd input 
@@ -62,6 +65,8 @@ getInputs:
         ldr r5, [r5]
         //check if less than 1
         cmp r5, #0 
+        ldrle r0, =error
+        blle printf 
         ble _inputB
     //add and return the numbers combined 
     add r0, r4, r5
