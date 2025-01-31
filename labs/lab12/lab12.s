@@ -40,7 +40,7 @@ main:
 //accept time as argument (1-10)
 //return distance 
 fallingDistance:
-    push {r4,r5,r6,lr}
+    push {r4,r5,r6,r7,lr}
     //initial time
     mov r5, r0
     //i = 0
@@ -57,6 +57,8 @@ fallingDistance:
         mul r1, r1, r6
         //logical shift right by 1 to divide by 2
         lsr r1, #1
+        //move answer into safew register
+        mov r7, r1
         //print the answer 
         mov r2, r1
         mov r1, r4
@@ -69,6 +71,7 @@ fallingDistance:
         //loop if zero flag is not activated 
         bne _loop
         
-
+    //put final answer in 0
+    mov r0, r7
     //fin
-    pop {r4,r5,r6,pc}
+    pop {r4,r5,r6,r7,pc}
