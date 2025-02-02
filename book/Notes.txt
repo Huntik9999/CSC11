@@ -403,11 +403,20 @@ CH.12 ~ Smarter Numbers
     -SMLAWB = op1 full word, op2 bottom half
 -------------------------------------------------------------------------
 CH.13 ~ Program Counter R15
--> 
+-> Pipelining 
+    -at the same time arm executing, decoding, and fetching
+    -(1)()(),(2)(1)(),(3)(2)(1),(4)(3)(2),(5)(4)(3)
+    -mov r15, r15 skips instruction 
+    -address of pc is 8 bytes more than address of instruction executed
 -------------------------------------------------------------------------
 CH.14 ~ Debugging with GDB
 -------------------------------------------------------------------------
 CH.15 ~ Data Transfer 
+->ADR Directive(not an ARM instruction)
+    -loads any 32 bit adress 
+    -provided by gcc assembler 
+    -ADR <Register>, <Label>
+    -Calculates the offset between the two memory positions
 -------------------------------------------------------------------------
 CH.16 ~ Block Transfer
 -------------------------------------------------------------------------
