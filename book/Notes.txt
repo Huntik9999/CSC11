@@ -417,6 +417,10 @@ CH.15 ~ Data Transfer
     -provided by gcc assembler 
     -ADR <Register>, <Label>
     -Calculates the offset between the two memory positions
+    -Only wroks in .text area 
+    -only places adress
+->Indirect Addressing
+
 -------------------------------------------------------------------------
 CH.16 ~ Block Transfer
 -------------------------------------------------------------------------

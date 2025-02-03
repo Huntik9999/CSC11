@@ -12,7 +12,7 @@
     coutWelcome: .asciz "-Lab 13: Celsius Temperature Table-\n"
     coutInput: .asciz "Please input tempature in Fahrenheit to convert to Celsius: "
     coutAns: .asciz "The Final Tempature converted = %d degrees celsius\n"
-    coutBuffer: .asciz "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+    coutBuffer: .asciz "~~~~~~~~~~~~~~~~~~TABLE~~~~~~~~~~~~~~\n"
     coutTable: .asciz "| Fahrenheit  = %d | Celsius  = %d |\n"
     dataType: .asciz "%d"
 .text
