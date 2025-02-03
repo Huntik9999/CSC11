@@ -1,0 +1,21 @@
+->working with the board 
+    -resistor slow the plow 
+    -always use resistor with led 
+->breadbord layout 
+    {|-----()-----|}
+    {|-----()-----|}
+    {|-----()-----|}
+    {|-----()-----|}
+    {|-----()-----|}
+    {|-----()-----|}
+    {|-----()-----|}
+    {|-----()-----|}
+    {|-----()-----|}
+    {|-----()-----|}
+    {|-----()-----|}
+    {|-----()-----|}
+->LED
+    -short/flat edge = negative
+    -power with 3.3 
+    -bendy bendy = long edge 
+-> random number 
