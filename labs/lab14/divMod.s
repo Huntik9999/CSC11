@@ -17,20 +17,49 @@ divMod: //int divMod( x, y){  x/y r0 returns results of the division, r1 should 
 r0 = result of div
 r1 = result of mod
 r2 = increment from 1
-r3 = decrement from denom
-r4 = denom
+r3 = decrement from denominator
+r4 = denominator
 r5 = numerator
+r8 = sign numerator
+r9 = sign denom
+r10 = answer sign
+r11 = orig numerator
+r12 = orig denom
  */
     push {lr}
     push {r4-r12}
+
+    //save the original values for sign determinations
+    mov r11, r0
+    mov r12, r1
+
+    //get the sign of the numerator
+    cmp r0, #0
+    movlt r8, #1
+    movge r8, #0
+    //get the sign of the denominator
+    cmp r1, #0
+    movlt r9, #1
+    movge r9, #0
+    //compute the answer sign by xor
+    eor r10, r8, r9 //0 is pos, 1 is neg
+
+    //abs of numerator & denominator
+    cmp r0, #0
+    rsblt r0, r0, #0
+    cmp r1, #0
+    rsblt r1, r1, #0
+
+
+
     mov r4, r1          //denom = 3;
     mov r5, r0        //numer = 600; 
 
     //Initialize the working registers with the data
-    mov r1, #0          //rDiv = 0;
-    mov r0, r5          //rMod = numer;
-    mov r2, #1          //increment = 1;
-    mov r3, r4          //decDenom = denom;
+    mov r1, #0          //rDiv = 0;          //accumlator for quotient
+    mov r0, r5          //rMod = numer;      //working remainder
+    mov r2, #1          //increment = 1;     //multiplier
+    mov r3, r4          //decDenom = denom;  //shifted divisor
 
 do:
     //Shift the denominator left until greater than numerator, then shift back
@@ -62,7 +91,17 @@ endWhile2: //}
     bal while1
 endWhile1: //}
     //Output the results
-    //move the values around so div is in r0 and mod in r1
+    //move the values around 
+
+
+    //adjust quotient sign based on r10
+    cmp r10, #1
+    rsbeq r1, r1, #0    //r1 = -r1
+
+    //adjust remainder sign to match dividend
+    cmp r8, #1
+    rsbeq r0, r0, #0   //r0 = -r0
+
     mov r2, r1
     mov r1, r0
     mov r0, r2
