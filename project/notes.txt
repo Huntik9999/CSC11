@@ -1,5 +1,13 @@
 -made on 2-6-
-Notes for: WiringPi Library
+Notes for: Project 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--> 
+->Hello Everyone 
+
+-> Welcome to a my video for my Assembly Final Project 
+
+-> I am going to show you a demonstation of my project 
+
+-> I picked the street crossing Game 
+
+-> Here is another version where the red led for the humans walking doesnt turn off

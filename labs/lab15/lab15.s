@@ -25,7 +25,6 @@ main:
         //output welcome msg 
         ldr r0, =coutWelcome
         bl printf
-
         //array into r1
         ldr r5, =arr 
         //counter i = 0 
