@@ -1,13 +1,32 @@
--made on 2-6-
-Notes for: Project 
+Reade me for GPIO Project 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Required:
+->WiringPi 
 
-->Hello Everyone 
+RUN:
+./a.out
+COMPILE:
+gcc project.s -l wiringPi
 
--> Welcome to a my video for my Assembly Final Project 
+BUILD:
+->Components
+    -Pedestrian walking signal: 2 LED (green and red )
+    -Traffic light: 3 LED (green & yellow & red)\
+    -(Button)
+->Wiring 
+    -Pedestrian walking signal 
+        *green led = GPIO 23
+        *red led   = GPIO 24 
+    -Traffic light 
+        *green led  = GPIO 22
+        *yellow led = GPIO 27
+        *red led    = GPIO 17
+    -Button
+        * = GPIO 18
+PLAY:
+->Summary 
+    -Click button to stop traffic and allow the pedestrian time to cross. 
 
--> I am going to show you a demonstation of my project 
-
--> I picked the street crossing Game 
-
--> Here is another version where the red led for the humans walking doesnt turn off
+->Game Loop
+    -Click button
+    
